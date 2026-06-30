@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional Saya</title>
+    <style>
+        /* ==================== 1. RESET & BASE STYLE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* Membuat efek scroll menjadi mulus */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #3498db;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* ==================== 2. NAVIGATION BAR ==================== */
+        nav {
+            background-color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* ==================== 3. HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            color: #ecf0f1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ==================== 4. MAIN CONTAINER & SECTIONS ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Tentang Saya */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Layanan / Keahlian (Grid System) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        /* Portofolio / Galeri */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #2c3e50;
+            color: white;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .portfolio-item:hover {
+            background: #3498db;
+        }
+
+        /* Kontak / Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* ==================== 5. FOOTER ==================== */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">MyWebsite</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- BERANDA (HERO SECTION) -->
+    <header id="home" class="hero">
+        <h1>Halo, Saya Seorang Kreator</h1>
+        <p>Membantu Anda membangun produk digital yang indah, responsif, dan fungsional dari awal.</p>
+        <a href="#contact" class="btn">Mulai Konsultasi</a>
+    </header>
+
+    <!-- TENTANG SAYA -->
+    <section id="about" class="container">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Saya adalah seorang pengembang web pemula yang bersemangat untuk mempelajari teknologi terbaru. Dengan kombinasi kreativitas dan kode, saya fokus menciptakan pengalaman pengguna yang nyaman di internet.</p>
+                <br>
+                <p>Di luar dunia koding, saya suka membaca buku, menulis artikel teknis, dan terus menantang diri sendiri dengan proyek-proyek baru yang menarik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN / KEAHLIAN -->
+    <section id="services" style="background-color: #f0f3f4;">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Web Design</h3>
+                    <p>Membuat desain tata letak website yang modern, bersih, dan sesuai dengan tren masa kini.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Web Development</h3>
+                    <p>Mengubah desain menjadi kode nyata menggunakan HTML, CSS, dan JavaScript yang cepat diakses.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Memastikan website Anda tampil sempurna di berbagai perangkat, baik HP, Tablet, maupun Laptop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTOFOLIO / KARYA -->
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Portofolio Terbaru</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" onclick="bukaProyek('E-Commerce')">Proyek Toko Online</div>
+            <div class="portfolio-item" onclick="bukaProyek('Company Profile')">Website Perusahaan</div>
+            <div class="portfolio-item" onclick="bukaProyek('Blog Pribadi')">Sistem Blog Kustom</div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" style="background-color: #f0f3f4;">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <form class="contact-form" onsubmit="kirimPesan(event)">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" placeholder="Masukkan email Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan Anda</label>
+                    <textarea id="message" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 5px;">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Portofolio Saya. All Rights Reserved.</p>
+    </footer>
+
+    <!-- INTERAKSI JAVASCRIPT -->
+    <script>
+        // Fungsi interaktif saat proyek diklik
+        function bukaProyek(namaProyek) {
+            alert("Anda mengklik proyek: " + namaProyek + ".\nDi sini Anda bisa mengarahkan link ke halaman detail proyek Anda nantinya!");
+        }
+
+        // Fungsi interaktif saat formulir dikirim
+        function kirimPesan(event) {
+            event.preventDefault(); // Mencegah halaman reload saat submit
+            
+            // Mengambil nilai dari inputan
+            const nama = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Menampilkan popup konfirmasi sukses
+            alert("Terima kasih, " + nama + "!\nPesan Anda telah disimulasikan terkirim. Kami akan menghubungi Anda kembali melalui " + email);
+            
+            // Mengosongkan form kembali
+            document.querySelector('.contact-form').reset();
+        }
+    </script>
+
+</body>
+</html>
